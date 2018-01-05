@@ -104,3 +104,12 @@ body {
     background: black;
     font-family: "等线", "dengxian", "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "YaHei Consolas Hybrid", "STHeiti", "Microsoft Yahei", sans-serif;
 }
+
+p {
+    text-align: left;
+    padding-top: 20px;
+}
+
+i {
+    padding-right: 10px;
+}
