@@ -87,7 +87,12 @@ code.has-numbering {
     content: "css";
 }
 
-.hljs ::before {
+.lang-php ::before {
+    content: "php";
+}
+
+.hljs ::before,
+blockquote ::before {
     position: absolute;
     right: 5px;
     top: 0px;
