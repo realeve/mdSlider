@@ -9,6 +9,7 @@ a {
     background-color: transparent;
     border-bottom: 0;
     padding-bottom: 5px;
+    font-weight: 600;
 }
 
 a:hover {
