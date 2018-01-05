@@ -409,9 +409,9 @@
                 var markdown = getMarkdownFromSlide(section);
 
                 var html = marked(markdown);
-                if (html.indexOf("<p>") > -1) {
-                    html = html.replace(/\n/g, "<br>");
-                }
+                // if (html.indexOf("<p>") > -1) {
+                //     html = html.replace(/\n/g, "<br>");
+                // }
 
                 //MD中引用的图片转为指定的目录
                 section.innerHTML = html.replace(

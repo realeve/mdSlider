@@ -159,12 +159,12 @@ var app = (function() {
             tipID: "tip"
         });
         initHLJS();
-        // handleBR();
+        handleBR();
     };
 
     var handleBR = function() {
-        $("p").each(function(idx, item) {
-            $(item).html(
+        $("p").each(function() {
+            $(this).html(
                 $(this)
                 .html()
                 .replace(/\n/g, "<br>")
