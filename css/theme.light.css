@@ -1,6 +1,6 @@
 ::selection {
     color: #fff;
-    background-color: #d33682;
+    background-color: #e96900;
     text-shadow: none;
 }
 
@@ -8,7 +8,7 @@ a {
     color: #42b983;
     background-color: transparent;
     border-bottom: 0;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
 }
 
 a:hover {
