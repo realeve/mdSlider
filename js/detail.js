@@ -61,7 +61,7 @@ var app = (function() {
             );
         });
         var str = `
-    <div style="margin-top:40px; font-Size:14pt;">请选择主题: <br>
+    <div style="margin-top:60px; font-Size:14pt;">请选择主题: <br><br>
       ${styleList.join(" - ")}
     </div>`;
         $("section")
