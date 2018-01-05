@@ -159,7 +159,7 @@ var app = (function() {
             tipID: "tip"
         });
         initHLJS();
-        handleBR();
+        // handleBR();
     };
 
     var handleBR = function() {
