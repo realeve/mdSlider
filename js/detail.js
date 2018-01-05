@@ -111,7 +111,7 @@ var app = (function() {
     $("body").on("keydown", function(event) {
         var keyName = event.key;
         var key = event.keyCode;
-        console.log(key + ":" + keyName);
+        // console.log(key + ":" + keyName);
         startTimer();
         if (key == 27) {
             isFullScreen = false;
@@ -158,7 +158,10 @@ var app = (function() {
             },
             tipID: "tip"
         });
+        initHLJS();
+    };
 
+    var initHLJS = function() {
         MixJS.loadJS("highlight/highlight.pack.js", function() {
             hljs.tabReplace = "  ";
             //numbering for pre>code blocks
@@ -181,7 +184,6 @@ var app = (function() {
             hljs.initHighlightingOnLoad();
         });
     };
-
     var init = (function() {
         initDom();
         RevealMarkdown.initialize();
