@@ -107,9 +107,18 @@ body {
 
 p {
     text-align: left;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 i {
     padding-right: 10px;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+slides>slide .slide-wrapper blockquote {
+    margin: 30px 0;
 }

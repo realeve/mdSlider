@@ -159,6 +159,17 @@ var app = (function() {
             tipID: "tip"
         });
         initHLJS();
+        handleBR();
+    };
+
+    var handleBR = function() {
+        $("p").each(function(idx, item) {
+            $(item).html(
+                $(this)
+                .html()
+                .replace(/\n/g, "<br>")
+            );
+        });
     };
 
     var initHLJS = function() {
