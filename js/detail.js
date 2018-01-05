@@ -60,7 +60,7 @@ var app = (function() {
         "</a>"
       );
     });
-    var str = '<div style="margin-top:60px; font-Size:14pt;">请选择主题: <br><br>' + styleList.join(" - ") + '< /div>';
+    var str = '<div style="margin-top:60px; font-Size:14pt;">请选择主题: <br><br>' + styleList.join(" - ") + '</div>';
     $("section")
       .first()
       .append(date + str);
