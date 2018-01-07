@@ -77,24 +77,24 @@ code.has-numbering {
     padding-bottom: 5px;
 }
 
-.lang-html ::before {
+.lang-html::before {
     content: "html";
 }
 
-.lang-js ::before {
+.lang-js::before {
     content: "js";
 }
 
-.lang-css ::before {
+.lang-css::before {
     content: "css";
 }
 
-.lang-php ::before {
+.lang-php::before {
     content: "php";
 }
 
-.hljs ::before,
-blockquote ::before {
+.hljs::before,
+blockquote::before {
     position: absolute;
     right: 5px;
     top: 0px;
@@ -128,4 +128,8 @@ strong {
 
 slides>slide .slide-wrapper blockquote {
     margin: 30px 0;
+}
+
+::selection {
+    background-color: #42b983;
 }

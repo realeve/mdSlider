@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button></button>
+    <script>
+    $('button').on('click', function() {
+        foo();
+    })
+
+    foo() {
+        // 事件a
+    }
+    bar() {
+        // 事件b
+    }
+
+    // 变量污染
+    foo = 'some other variable';
+    </script>
+    <script>
+    var app = {
+        foo: function() {
+            // foo
+        },
+        bar: function() {
+            // bar
+        }
+    }
+    app.foo();
+    </script>
+    <script>
+    var app = (function($) {
+        var _btnDom = $('button');
+        console.log(_btnDom);
+
+        var _privateVariable = '';
+        var foo = function() {
+
+        };
+        return {
+            foo: foo
+        }
+    })(jQuery);
+    app.foo();
+    app._privateVariable; // 对它的引用会报错
+    </script>
+    <script>
+    // math.js
+    export.add = function(a, b) {
+        return a + b;
+    }
+
+    // app.js
+    var math = require('math.js');
+    math.add(2, 3) == 5;
+    </script>
+</body>
+
+</html>
