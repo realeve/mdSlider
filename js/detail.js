@@ -107,6 +107,7 @@ var app = (function() {
             isFullScreen = true;
         }
     };
+
     // debug 模式取消任意键全屏，方便测试。
     var DEBUG = true;
     $("body").on("keydown", function(event) {

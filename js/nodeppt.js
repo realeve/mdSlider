@@ -474,6 +474,9 @@
         } else if (!$doc.body.classList.contains("popup")) {
             $doc.body.classList.remove("with-notes");
         }
+
+        // 更新index;
+        updateSlideIdx();
     }
 
     function updateSlideClass() {
@@ -1262,6 +1265,8 @@
             preload($slides[curIndex])($slides[curIndex + 1]);
         }
 
+        updateSlideIdx();
+
         $body.style.opacity = 1;
     }
 
@@ -1362,6 +1367,14 @@
                 magic(e);
         }
     };
+
+    var $slide = document.querySelector("#slide") || false;
+    var updateSlideIdx = function() {
+        if (!$slide) return;
+        var progress = Slide.current + " / " + Slide.count;
+        $slide.innerHTML = progress;
+    };
+
     var Slide = {
         current: 0,
         curItem: 0,
