@@ -198,3 +198,10 @@ slides>slide .slide-wrapper img {
     margin: 0 auto;
     display: flex;
 }
+
+.fill h1,
+.fill h2,
+.fill h3,
+.fill p {
+    color: #fff;
+}

@@ -1,22 +1,29 @@
 {
     "list": [{
-            "author": "李宾",
             "path": "bs架构开发的发展历程",
             "title": "bs架构开发的发展历程",
+            "author": "李宾",
             "homepage": "https://github.com/realeve",
             "weibo": "http://weibo.com/realeve"
         },
         {
-            "author": "李宾",
             "path": "JS的模块化发展",
             "title": "JS的模块化发展",
+            "author": "李宾",
             "homepage": "https://github.com/realeve",
             "weibo": "http://weibo.com/realeve"
         },
         {
-            "author": "李宾",
             "path": "ES6 基础",
             "title": "ES6 基础",
+            "author": "李宾",
+            "homepage": "https://github.com/realeve",
+            "weibo": "http://weibo.com/realeve"
+        },
+        {
+            "path": "Web浏览器的缓存策略",
+            "title": "Web浏览器的缓存策略",
+            "author": "李宾",
             "homepage": "https://github.com/realeve",
             "weibo": "http://weibo.com/realeve"
         }

@@ -105,7 +105,7 @@ Markdown 的粗体和斜体也非常简单，用两个 \* 包含一段文本就�
 
 ---
 
-<!-- .slide: style="background-image:url('./img/osx.jpg');color:#fff;" -->
+<!-- .slide: style="background-image:url('./img/osx.jpg');" -->
 
 ##<i class="fa fa-bookmark success"></i> 如何用 MARKDOWN 写 SLIDE
 当前所看到的这个 Slide 就是用 MARKDOWN 所写成，你可以点击 [这里](./markdown/基于MarkDown的PPT制作.md) 下载 MARKDOWN 文件浏览其中的样式。
