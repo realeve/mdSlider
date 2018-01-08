@@ -12,6 +12,13 @@
             "title": "JS的模块化发展",
             "homepage": "https://github.com/realeve",
             "weibo": "http://weibo.com/realeve"
+        },
+        {
+            "author": "李宾",
+            "path": "ES6 基础",
+            "title": "ES6 基础",
+            "homepage": "https://github.com/realeve",
+            "weibo": "http://weibo.com/realeve"
         }
     ]
 }

@@ -93,6 +93,10 @@ code.has-numbering {
     content: "php";
 }
 
+.lang-c::before {
+    content: "C 语言";
+}
+
 .hljs::before,
 blockquote::before {
     position: absolute;
@@ -132,4 +136,57 @@ slides>slide .slide-wrapper blockquote {
 
 ::selection {
     background-color: #42b983;
+}
+
+slides>slide .slide-wrapper blockquote {
+    border-left-color: #f66;
+    position: relative;
+    padding: 12px 24px 12px 30px;
+    margin: 2em 0;
+    border-left-width: 4px;
+    border-left-style: solid;
+    background-color: #f2f2f2;
+    position: relative;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #2c3e50;
+}
+
+slides>slide .slide-wrapper blockquote::before {
+    position: absolute;
+    top: 14px;
+    left: -12px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    content: "!";
+    background-color: #f66;
+}
+
+slides>slide .slide-wrapper blockquote p {
+    font-size: 22px;
+    line-height: 1.7em;
+}
+
+slides>slide .slide-wrapper blockquote small {
+    color: #232323;
+    position: relative;
+    padding-left: 24px;
+}
+
+slides>slide .slide-wrapper blockquote small::before {
+    position: absolute;
+    top: 3px;
+    content: "\2015 \00A0";
+}
+
+slides>slide .slide-wrapper img {
+    margin: 0 auto;
+    display: flex;
 }

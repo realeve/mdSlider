@@ -60,6 +60,41 @@
     var math = require('math.js');
     math.add(2, 3) == 5;
     </script>
+    <script>
+    var a = 2;
+    if (true) {
+        var a = 3;
+    }
+    console.log(a);
+
+
+    let a = 2;
+    if (true) {
+        let a = 3;
+    }
+    console.log(a);
+
+    var machines = [{
+        name: '设备1',
+        value: 1
+    }, {
+        name: '设备2',
+        value: 2
+    }, {
+        name: '设备3',
+        value: 3
+    }];
+
+    var strOptions = '';
+    for (var i = 0; i < machines.length; i++) {
+        var item = machines[i];
+        strOptions += '<option value="' + item.value + '">' + item.name + '</option>';
+    }
+    $('select').html(strOptions);
+ strOptions = machines.map(function(item) { return `
+<option value="${item.value}">${item.name}</option>`; }) $('select').html(strOptions);
+
+    </script>
 </body>
 
 </html>

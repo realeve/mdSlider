@@ -158,15 +158,16 @@ app.foo();
 最初出现在Node.js中，将javascript运行在服务端。
 ```js
     // math.js
-    export.add = function(a, b) {
+    var add = function(a, b) {
         return a + b;
     }
-
+    module.exports = add;
+    
     // app.js
     var math = require('math.js');
     math.add(2, 3) == 5;
 ```
-> 浏览器端没有export,require，只能在服务端使用。
+> 浏览器端没有module,export,require，只能在服务端使用。
 
 扩展阅读：[js模块化编程之彻底弄懂CommonJS和AMD/CMD！](https://www.cnblogs.com/chenguangliang/p/5856701.html)
 - - - - -
