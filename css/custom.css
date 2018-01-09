@@ -105,6 +105,10 @@ code.has-numbering {
     content: "C 语言";
 }
 
+.lang-dos::before {
+    content: "dos";
+}
+
 .hljs::before,
 blockquote::before {
     position: absolute;
@@ -193,6 +197,7 @@ slides>slide .slide-wrapper blockquote small::before {
 slides>slide .slide-wrapper img {
     margin: 0 auto;
     display: flex;
+    z-index: 1;
 }
 
 .fill h1,
@@ -206,4 +211,28 @@ slides>slide .slide-wrapper img {
 .theme-info {
     margin-top: 60px;
     font-Size: 14pt;
+}
+
+@font-face {
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Italiana'), local('Italiana-Regular'), url(../fonts/italiana.ttf) format('truetype');
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.italiana {
+    font-family: Italiana;
+    color: #333;
 }

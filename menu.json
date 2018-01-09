@@ -18,6 +18,11 @@
             "path": "如何不间断部署前端代码",
             "homepage": "https://github.com/realeve",
             "weibo": "http://weibo.com/realeve"
+        },
+        {
+            "path": "Egg.js基础",
+            "homepage": "https://github.com/realeve",
+            "weibo": "http://weibo.com/realeve"
         }
     ]
 }
