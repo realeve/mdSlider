@@ -1,4 +1,4 @@
-# Egg.js基础
+# Egg.js基础(上)
 
 >成钞公司印钞管理部 李宾
 
@@ -71,7 +71,7 @@ c:\> node app.js
 
 - - - - -
 # Express
-[express](http://www.expressjs.com.cn/starter/hello-world.html)是目前node.js上最流行的web应用框架，由于在node.js 7.5以后正式支持async异步调用，所以目前有部分开发者已经转移到KOA等框架。
+[express](http://www.expressjs.com.cn/starter/hello-world.html)是目前node.js上最流行的web应用框架，由于在node.js 7.6以后正式支持async异步调用，所以目前有部分开发者已经转移到KOA等框架。
 ```js
 var express = require('express');
 var app = express();
@@ -249,7 +249,7 @@ router:
 ```js
 router.get("/api/list", controller.api.apiList);
 ```
-自定义SQL语句联接
+拼接 sql 语句
 > const results = await app.mysql.query('update posts set hits = (hits + ?) where id = ?', [1, postId]);
 - - - - -
 # 测试结果
@@ -259,5 +259,64 @@ router.get("/api/list", controller.api.apiList);
 # CRUD
 遵循[官网说明](https://www.npmjs.com/package/egg-mysql)编写相应代码即可。
 - - - - -
-# 添加更多的功能
-待更新
+# 连接MS SQL
+[node-mssql 文档](https://www.npmjs.com/package/mssql)
+```js
+// ./app/lib/mssql.config.js
+const mssql = {
+    user: "sa",
+    password: "123",
+    server: "localhost", // You can use 'localhost\\instance' to connect to named instance
+    database: "api",
+    options: {
+        encrypt: false // Use this if you're on Windows Azure
+    }
+};
+
+module.exports = mssql;
+```
+- - - - -
+# 封装查询函数
+```js
+// ./app/lib/mssql.js
+const config = require("./mssql.config");
+const sql = require("mssql");
+
+const query = async sqlStr => {
+    const pool = await sql.connect(config);
+    const result = await pool.request().query(sqlStr);
+    await sql.close();
+    return {
+        rows: result.rowsAffected[0],
+        header: result.recordset.length === 0 ? [] : Object.keys(result.recordset[0]),
+        data: result.recordset
+    };
+};
+
+module.exports = { query };
+```
+- - - - -
+# 使用
+```js
+const mssql = require("../lib/mssql");
+async apiMSSql() {
+    const data = await mssql.query("select * from tblApi");
+    this.ctx.body = data;
+}
+```
+- - - - -
+# 结果
+
+![](./_image/2018-01-10-08-37-27.jpg)
+- - - - -
+# 改进
+- 基于快速实现功能的目的将mssql的连接和查询封装为了独立的模块，此处可考虑将其封装为egg的插件，方便直接**注入 this.app 中**。
+- 此处连接数据库-->查询-->关闭数据库，可考虑合理使用连接池，**将连接态全局保存**;
+- 封装更多的功能
+
+- - - - -
+# oracle
+[文档](https://www.npmjs.com/package/oracledb)
+后续的数据库连接操作自行根据官网文档编写业务代码。
+- - - - -
+# Q&A
