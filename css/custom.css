@@ -97,6 +97,10 @@ code.has-numbering {
     content: "css";
 }
 
+.lang-json::before {
+    content: "json";
+}
+
 .lang-php::before {
     content: "php";
 }
