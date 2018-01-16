@@ -17,3 +17,13 @@ body {
     /* font-family: PingFang SC, PingFang TC, Helvetica Neue, Helvetica, Roboto, Arial, Hiragino Sans GB, Microsoft Yahei, Microsoft Jhenghei, sans-serif; */
     font-family: "等线", "dengxian", "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "YaHei Consolas Hybrid", "STHeiti", "Microsoft Yahei", sans-serif;
 }
+
+.intro-content>p,
+.product-link p {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.product-title {
+    font-size: 20px;
+}
