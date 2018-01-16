@@ -1,5 +1,5 @@
 function getSliderItem(item, i) {
-  return '<li><a class="product-link" target="_blank" href="/detail.html?file=' + item.title + '"><h6 class="product-title">' + (i + 1) + '.' + item.title + ' </h6><p> ' + item.desc + '</p></a> </li>';
+  return '<li><a class="product-link" target="_blank" href="./detail.html?file=' + item.title + '"><h6 class="product-title">' + (i + 1) + '.' + item.title + ' </h6><p> ' + item.desc + '</p></a> </li>';
 
 }
 $(document).ready(function() {
