@@ -18,6 +18,7 @@
 .slide-idx {
     bottom: 6px;
     left: 6px;
+    W
 }
 
 #_slide_ {
@@ -111,6 +112,10 @@ code.has-numbering {
 
 .lang-dos::before {
     content: "dos";
+}
+
+.lang-sql::before {
+    content: "SQL";
 }
 
 .hljs::before,
