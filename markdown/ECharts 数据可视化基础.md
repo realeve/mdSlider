@@ -561,21 +561,34 @@ toolbox: {
 - - - - -
 # 各类常见可视化图形
 ## 堆叠图
+> stack:'合计'
+
 - - - - -
 # 条形图
+交换x,y轴配置
 - - - - -
 # 饼图
+type:'pie'
 - - - - -
 # 环形图
+type:'pie',
+radius:[30,60]
 - - - - -
 # 玫瑰图
+type:'pie',
+radius : [20, 110],
+roseType : 'radius',
 - - - - -
 # 散点图
+type:'scatter'
 - - - - -
 # 主题河流图
+type:'themeRiver'
 - - - - -
 # 箱线图
+type:'boxPlot'
 - - - - -
 # 旭日图
+type: 'sunburst',
 - - - - -
 # Q&A
