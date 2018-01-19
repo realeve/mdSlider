@@ -23,6 +23,7 @@ V8.7.0
 > node.js中自带的包管理工具。
 
 [官网](https://www.npmjs.com/)  [文档](https://docs.npmjs.com/getting-started/what-is-npm)
+[npm script 阅读指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
 ```dos
 cd yourAppDir
 e:\yourAppDir > npm install --save echarts

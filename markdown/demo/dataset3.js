@@ -26,10 +26,10 @@
     "source": "数据来源:质量综合管理系统"
   };
   let getBarSettings = options => {
-    const unsetLegend = Reflect.get(options, 'legend') === undefined;
+    const haveLegend = Reflect.has(options, 'legend');
     let option = Object.assign({
-      x: unsetLegend ? 0 : 1,
-      y: unsetLegend ? 1 : 2,
+      x: haveLegend ? 1 : 0,
+      y: haveLegend ? 2 : 1,
       type: 'bar'
     }, options);
 
@@ -37,7 +37,7 @@
     let data = option.data;
     let header = data.header.map(item => item.title);
 
-    if (unsetLegend) {
+    if (!haveLegend) {
       return {
         dataset: {
           source: data.data,
@@ -61,15 +61,17 @@
     legend = uniq(legend);
     let series = [];
     let dataset = legend.map((legendItem, i) => {
-      series.push({
+      let seriesItem = {
         name: legendItem,
         type: option.type,
         encode: {
           x: option.x,
           y: option.y
         },
-        datasetIndex: i
-      });
+        datasetIndex: i,
+        stack: Reflect.get(option, 'stack')
+      };
+      series.push(seriesItem);
       return {
         source: data.data.filter(item => item[option.legend] == legendItem),
         dimensions: header
@@ -81,16 +83,18 @@
     };
   }
 
+
   let options = {
     legend: 0,
     x: 1,
     y: 2,
     type: 'bar',
-    data: originalData
+    data: originalData,
+    stack: '合计',
+    reverse: true
   }
 
   let settings = getBarSettings(options, originalData);
-
   var option = {
     dataset: settings.dataset,
     legend: {},
@@ -101,3 +105,9 @@
     },
     series: settings.series
   };
+  if (options.reverse) {
+    option.xAxis = {};
+    option.yAxis = {
+      type: 'category'
+    };
+  }

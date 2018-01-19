@@ -378,7 +378,8 @@ option = {
   var option = {
     dataset: {
       source: data.data,
-      dimensions: header
+      dimensions: header,
+      sourceHeader: false
     },
     tooltip: {},
     yAxis: {},
@@ -402,7 +403,8 @@ option = {
   var option = {
     dataset: {
       source: data.data,
-      dimensions: header
+      dimensions: header,
+      sourceHeader: false
     },
     tooltip: {},
     yAxis: {},
@@ -465,7 +467,8 @@ var option = {
       });
       return {
         source: data.data.filter(item => item[option.legend] == legendItem),
-        dimensions: header
+        dimensions: header,
+        sourceHeader: false
       }
     });
     return { dataset, series };
@@ -495,11 +498,12 @@ var option = {
 - - - - -
 # 增强鲁棒性
 ```js
-let getBarSettings = options => {
-    const unsetLegend = Reflect.get(options, 'legend') === undefined;
+
+  let getBarSettings = options => {
+    const haveLegend = Reflect.has(options, 'legend');
     let option = Object.assign({
-      x: unsetLegend ? 0 : 1,
-      y: unsetLegend ? 1 : 2,
+      x: haveLegend ? 1 : 0,
+      y: haveLegend ? 2 : 1,
       type: 'bar'
     }, options);
 
@@ -507,7 +511,7 @@ let getBarSettings = options => {
     let data = option.data;
     let header = data.header.map(item => item.title);
 
-    if (unsetLegend) {
+    if (!haveLegend) {
       return {
         dataset: {
           source: data.data,
@@ -561,11 +565,129 @@ toolbox: {
 - - - - -
 # 各类常见可视化图形
 ## 堆叠图
-> stack:'合计'
+```js
+let dataset = legend.map((legendItem, i) => {
+  let seriesItem = {
+    name: legendItem,
+    type: option.type,
+    encode: {
+      x: option.x,
+      y: option.y
+    },
+    datasetIndex: i
+  };
+  if (Reflect.has(option, 'stack')) {
+    seriesItem.stack = option.stack;
+  }
+  series.push(seriesItem);
+  return {
+    source: data.data.filter(item => item[option.legend] == legendItem),
+    dimensions: header
+  }
+});
+let options = {
+    legend: 0,
+    x: 1,
+    y: 2,
+    stack: '合计',
+    type: 'bar',
+    data: originalData
+}
+```
+> 当不使用堆叠图时，stack值默认为false
 
+- - - - -
+```js
+let dataset = legend.map((legendItem, i) => {
+      let seriesItem = {
+        name: legendItem,
+        type: option.type,
+        encode: {
+          x: option.x,
+          y: option.y
+        },
+        datasetIndex: i,
+        stack: Reflect.get(option, 'stack')
+      };
+      series.push(seriesItem);
+      return {
+        source: data.data.filter(item => item[option.legend] == legendItem),
+        dimensions: header
+      }
+    });
+    return {
+      dataset,
+      series
+    };
+  }
+```
 - - - - -
 # 条形图
 交换x,y轴配置
+```js
+  // 这里options的参数如何配置？
+  let options = {
+    legend: 0,
+    y: 1,
+    x: 2,
+    type: 'bar',
+    data: originalData,
+    stack: '合计',
+    reverse: true
+  }
+
+  let settings = getBarSettings(options, originalData);
+
+  var option = {
+    dataset: settings.dataset,
+    legend: {},
+    tooltip: {},
+    yAxis: {},
+    xAxis: {
+      type: 'category'
+    },
+    series: settings.series
+  };
+  if (options.reverse) {
+    option.xAxis = {};
+    option.yAxis = {
+      type: 'category'
+    };
+  }
+```
+- - - - -
+> 如何通过获取配置参数？
+> 方案一,做单独的管理页面配置图形样式并存储配置项于数据库，数据请求按以下方式进行。:
+【请求www.yourdomain.com/chart/23】→【读取 id=23 的配置(包含接口id，数据图的配置项等信息)】→【渲染图像】
+> 方案2：直接将配置项置于地址栏请求中：
+> www.yourdomain.com/chart/23/?type=bar&legend=2&x=0&y=3&reverse=1
+
+```
+var qs = require('qs');
+// window.location.search.slice(1)
+const url = 'www.yourdomain.com/chart/23/?type=bar&legend=2&x=0&y=3&reverse=1';
+const search = url.includes('?') ? url.split('?')[1]:'type=bar';
+let option = qs.parse(search);
+```
+```cmd
+npm start
+{ type: 'bar', legend: '2', x: '0', y: '3', reverse: '1' }
+```
+推荐阅读：[queryString](https://www.npmjs.com/package/qs)
+- - - - -
+```js
+let qs = require('qs');
+let getChartConfig = ()=>{
+    let search = window.location.search.slice(1);
+    search = search.length ? search:'type=bar';
+    return qs.parse(search);
+}
+```
+- - - - -
+# 封装图表配置项
+> parcel.js 打包 axios,lodash,echarts
+
+[示例url](http://localhost:1234/?type=line&legend=0&x=1&y=2&smooth=1&max=100&min=70)
 - - - - -
 # 饼图
 type:'pie'
