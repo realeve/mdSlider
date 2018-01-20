@@ -20,7 +20,7 @@ let initEvent = chart => {
 
 let init = async() => {
     let config = util.getChartConfig();
-    let url = "http://localhost/DataInterface/Api?ID=144&tstart=20170301&tend=20170331&cache=10";
+    let url = "http://localhost/DataInterface/Api?ID=144&tstart=20170601&tend=20170831&cache=10";
     config.data = await axios
         .get(url)
         .then(res => res.data);

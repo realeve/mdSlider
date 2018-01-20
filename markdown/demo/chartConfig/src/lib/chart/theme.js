@@ -8,11 +8,11 @@ let theme = {
         itemGap: 8,
         textStyle: {
             fontWeight: 'bold',
-            color: '#666',
+            color: '#2C3E50',
             fontSize: 28,
         },
         subtextStyle: {
-            color: '#666'
+            color: '#2C3E50'
         }
     },
 

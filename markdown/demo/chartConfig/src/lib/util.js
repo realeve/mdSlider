@@ -28,13 +28,14 @@ let getCopyRight = () => {
 
 let handleDefaultOption = option => {
     option = Object.assign({
+            color: ['#2C3E50', '#E74C3C', '#F1973A', '#3498DB', '#2980B9'],
             toolbox: {
                 feature: {
                     dataZoom: {},
                     dataView: { readOnly: false },
                     magicType: { type: ["line", "bar", "stack", "tiled"] },
                     restore: {},
-                    saveAsImage: {}
+                    saveAsImage: { type: 'svg' }
                 },
                 left: 'left'
             },
@@ -57,19 +58,6 @@ let handleDefaultOption = option => {
                 top: 50,
                 bottom: 60
             },
-            dataZoom: [{
-                    show: true,
-                    realtime: true,
-                    start: 0,
-                    end: 100
-                },
-                {
-                    type: 'inside',
-                    realtime: true,
-                    start: 0,
-                    end: 100
-                }
-            ],
         },
         option
     );

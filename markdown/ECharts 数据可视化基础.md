@@ -554,6 +554,9 @@ itemStyle: {
 }
 ```
 - - - - -
+# color
+颜色主题，[可以参考这里的配色](./markdown/demo/adobecc/index.html)选取自己喜欢的颜色。
+- - - - -
 # toolbox
 ```js
 toolbox: {

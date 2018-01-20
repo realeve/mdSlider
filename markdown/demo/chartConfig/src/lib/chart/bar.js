@@ -99,7 +99,13 @@ let bar = options => {
         xAxis: {
             type: settings.dateAxis ? "time" : "category"
         },
-        series: settings.series
+        series: settings.series,
+        dataZoom: [{
+            type: 'inside',
+            realtime: true,
+            start: 0,
+            end: 100
+        }]
     };
     if (options.reverse) {
         option.xAxis = { max: options.max, min: options.min };
@@ -114,6 +120,15 @@ let bar = options => {
             return item;
         });
     }
+
+    if (options.zoom) {
+        option.dataZoom.push({
+            realtime: true,
+            start: 0,
+            end: 100
+        })
+    }
+
     return option;
 };
 
