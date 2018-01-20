@@ -1,7 +1,4 @@
 # Web API接口设计
-
->成钞公司印钞管理部 李宾
-
 - - - - -
 # http 常见请求类型
 **GET** / **POST** / **PUT** / **DELETE** / **OPTIONS**

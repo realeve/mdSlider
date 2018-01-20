@@ -70,7 +70,7 @@ let getSetting = options => {
             datasetIndex: i,
             stack: Reflect.get(option, "stack"),
             smooth: option.smooth,
-            boundaryGap: false
+            // boundaryGap: false
         };
         series.push(seriesItem);
         return {

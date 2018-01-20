@@ -42,14 +42,18 @@
 [点击这里查看示例](./markdown/demo/chart01.html)
 - - - - -
 # canvas 与 svg
-> 从ECharts4.0以后开始正式支持svg绘图，导出的图片可以以矢量格式存在，清晰度高许多，同时在对特效要求不高的场景，svg占用较少内存。
+> 从ECharts4.0以后开始正式支持svg绘图，导出的图片可以以矢量格式存在，清晰度高许多，同时在对特效要求不高的场景，svg占用较少内存。SVG渲染折线图和饼图的效率更高，而由于Canvas渲染矩形的效率很高，所以柱状图使用Canvas渲染的效率高于SVG。
 
 ```js
 const chart = echarts.init(document.querySelector('#chart'),null , {
         renderer: 'svg'
     });
 ```
+
+![](./_image/svg vs canvas.jpg)
+
 [点击这里查看示例](./markdown/demo/chart02.html)
+推荐阅读: [Canvas or SVG？一张好图，两手准备，就在 ECharts 4.0](https://zhuanlan.zhihu.com/p/33093211)
 - - - - -
 # 曲线图
 ```js
@@ -687,7 +691,31 @@ let getChartConfig = ()=>{
 # 封装图表配置项
 > parcel.js 打包 axios,lodash,echarts
 
-[示例url](http://localhost:1234/?type=line&legend=0&x=1&y=2&smooth=1&max=100&min=70)
+[示例url](http://localhost:1234/?type=bar&legend=0&x=1&y=2&smooth=1&max=100&min=70)
+
+[demo源码](https://github.com/realeve/mdSlider/tree/master/markdown/demo/chartConfig)
+- - - - -
+> 由于queryString变化时，url将重载，所以在实际应用中建议使用hash来传参，这样页面切换时无需加载额外资源，只需重新加载数据并渲染即可。
+
+```js
+let getChartConfig = () => {
+    // let search = window.location.search.slice(1);
+    let search = window.location.hash.slice(1);
+    search = search.length ? search : "type=bar";
+    return qs.parse(search);
+};
+```
+- - - - -
+> [如何监听hash变化？](https://developer.mozilla.org/en-US/docs/Web/Events/hashchange)
+
+```js
+let initEvent = chart => {
+    window.onresize = () => { chart.resize() }
+    window.onhashchange = () => {
+        init();
+    }
+};
+```
 - - - - -
 # 饼图
 type:'pie'

@@ -13,6 +13,9 @@ let initChart = option => {
 
 let initEvent = chart => {
     window.onresize = () => { chart.resize() }
+    window.onhashchange = () => {
+        init();
+    }
 };
 
 let init = async() => {

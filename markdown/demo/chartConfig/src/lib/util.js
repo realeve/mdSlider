@@ -2,7 +2,8 @@ import qs from "qs";
 import _ from "lodash";
 
 let getChartConfig = () => {
-    let search = window.location.search.slice(1);
+    // let search = window.location.search.slice(1);
+    let search = window.location.hash.slice(1);
     search = search.length ? search : "type=bar";
     return qs.parse(search);
 };
@@ -55,7 +56,20 @@ let handleDefaultOption = option => {
                 right: 20,
                 top: 50,
                 bottom: 60
-            }
+            },
+            dataZoom: [{
+                    show: true,
+                    realtime: true,
+                    start: 0,
+                    end: 100
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 100
+                }
+            ],
         },
         option
     );

@@ -1,7 +1,4 @@
 #基于 MarkDown 的 SLIDE 制作
-
-> YC 管理部 李宾
-
 ---
 
 <!-- .slide: data-background="#41b883" -->
