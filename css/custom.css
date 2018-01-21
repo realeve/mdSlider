@@ -245,3 +245,17 @@ slides>slide .slide-wrapper img {
     font-family: Italiana;
     color: #333;
 }
+
+.slide-iframe {
+    padding: 0px;
+}
+
+.slide-iframe .slide-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+
+.slide-iframe iframe {
+    height: 100%;
+    width: 100%;
+}
