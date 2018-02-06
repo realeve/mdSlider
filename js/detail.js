@@ -169,6 +169,8 @@ var app = (function() {
       tipID: "tip"
     });
     initHLJS();
+    // initCode();
+
     handleBR();
     handleHref();
     initPDF();
@@ -226,6 +228,21 @@ var app = (function() {
       hljs.initHighlightingOnLoad();
     });
   };
+
+  var initCode = function() {
+    $("code").each(function(i, item) {
+      var html = $(item).html().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      $(item).html('');
+      CodeMirror(item, {
+        lineNumbers: true,
+        theme: 'material',
+        styleActiveLine: true,
+        matchBrackets: true,
+        value: html
+      });
+    })
+  }
+
   var init = (function() {
     initDom();
     RevealMarkdown.initialize();

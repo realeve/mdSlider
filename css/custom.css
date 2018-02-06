@@ -40,10 +40,11 @@
 pre {
     position: relative;
     margin-bottom: 24px;
-    border-radius: 3px;
-    border: 1px solid #abb2bf;
+    border-radius: 5px;
+    /* border: 1px solid #abb2bf; */
     background: #282c34;
     overflow: hidden;
+    padding: 30px 10px 20px 10px;
 }
 
 code {
@@ -61,10 +62,10 @@ code.has-numbering {
 
 .pre-numbering {
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 0;
     width: 20px;
-    padding: 10px 2px 12px 0;
+    margin: 15px 2px 12px 20px;
     border-right: 1px solid #abb2bf;
     border-radius: 3px 0 0 3px;
     background-color: #282c34;
@@ -84,6 +85,7 @@ code.has-numbering {
 
 .hljs {
     padding-bottom: 5px;
+    padding-top: 15px;
 }
 
 .lang-html::before {
@@ -123,9 +125,20 @@ blockquote::before {
     position: absolute;
     right: 5px;
     top: 0px;
-    font-size: 11px;
+    font-size: 16px;
     color: rgb(250, 105, 129);
     padding: 0;
+    font-weight: bold;
+}
+
+.code-container::before {
+    position: absolute;
+    left: 18px;
+    top: 10px;
+    padding: 0;
+    background: url(/img/window-controls.svg) left center no-repeat;
+    content: ' ';
+    width: 80px;
 }
 
 .progress span {
